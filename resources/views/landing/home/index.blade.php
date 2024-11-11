@@ -70,6 +70,9 @@
           <li>
             <a href="#featured-product" class="navbar-link" data-nav-link>Produk</a>
           </li>
+          <li>
+            <a href="#latest-articles" class="navbar-link" data-nav-link>Artikel</a>
+          </li>
         </ul>
       </nav>
 
@@ -166,7 +169,32 @@
               </p>
             </div>
           @endif
+      </section>
+      <section class="section latest-articles" id="latest-articles">
+        <div class="container">
+          <h2 class="h2 section-title">Artikel Terbaru</h2>
+          <div class="row">
+            @foreach ($articles as $article)
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ $article->title }}</h5>
+                    <p class="card-text">
+                      <a href="{{ $article->link }}" target="_blank">Baca Selengkapnya</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            @endforeach
+          </div>
 
+          @if ($articles->isEmpty())
+            <div style="margin-top: 50px; margin-bottom: 50px;">
+              <p style="text-align: center; font-size: 20px; color: #6c757d;">
+                Tidak ada artikel
+              </p>
+            </div>
+          @endif
         </div>
       </section>
     </article>
