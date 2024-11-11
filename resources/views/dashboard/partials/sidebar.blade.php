@@ -93,7 +93,25 @@
             </span>
           </a>
         </li>
+        <li class="nav-item {{ Request::is('dashboard/artikels*') ? 'active' : '' }}">
+          <a class="nav-link" href="{{ route('dashboard.articles.index') }}">
+            <span class="nav-link-icon d-lg-inline-block">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" 
+                   stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 4a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v16a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+                <path d="M7 8h10" />
+                <path d="M7 12h10" />
+                <path d="M7 16h10" />
+              </svg>
+            </span>
+            <span class="nav-link-title">
+              Artikel
+            </span>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
 </aside>
+
