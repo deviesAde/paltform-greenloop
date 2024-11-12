@@ -130,6 +130,7 @@
                     <th>Harga</th>
                     <th>URL</th>
                     <th>Status</th>
+                    <th>Kategori</th>
                     <th class="text-center">Opsi</th>
                   </tr>
                 </thead>
@@ -172,6 +173,9 @@
                             Tidak Aktif
                           </span>
                         @endif
+                        <td class="text-muted">
+                          {{ $product->category->name ?? 'Gada' }}
+                        </td>
                       </td>
                       <td>
                         <div class="d-flex justify-content-center">
@@ -499,7 +503,24 @@
                 @enderror
               </div>
             </div>
-          </div>
+           <div class="row mb-3">
+    <div class="col">
+        <div class="form-label required">Kategori</div>
+        <select class="form-select @error('category_id') is-invalid @enderror" name="category_id" required>
+            <option value="" disabled selected>Pilih Kategori</option>
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                    {{ $category->name }}
+                </option>
+            @endforeach
+        </select>
+        @error('category_id')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+</div>
           <div class="modal-footer pt-2" style="border-top: 1px solid #e9ecef;">
             <button type="button" class="btn me-auto" data-bs-dismiss="modal">Batal</button>
             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">

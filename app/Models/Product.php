@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'price', 'image', 'url', 'is_published'];
+    protected $fillable = ['name', 'description', 'price', 'image', 'url', 'is_published', 'category_id'];
     protected $table = 'products';
 
     protected $fields = [
@@ -21,6 +21,7 @@ class Product extends Model
         'is_published',
         'created_at',
         'updated_at',
+        'category_id',
     ];
 
     static $sortables = [
@@ -60,5 +61,9 @@ class Product extends Model
         }
 
         return $query;
+    }
+      public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

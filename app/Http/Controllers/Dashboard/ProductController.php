@@ -6,22 +6,26 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
     public function index()
     {
+        $categories = Category::all();
         return view('dashboard.products.index', [
             'title' => 'Daftar Produk',
             'products' => Product::options(request(Product::$allowedParams))
                 ->paginate($this->validateAndGetLimit(request('limit'), 10)),
             'sortables' => Product::$sortables,
             'allowedParams' => Product::$allowedParams,
+            'categories' => $categories,
         ]);
     }
 
     public function store(StoreProductRequest $request)
     {
+        $request->validated(['category_id' => 'required|exists:categories,id',]);
         $data = $request->validated();
 
         if ($request->hasFile('image')) {
@@ -37,6 +41,7 @@ class ProductController extends Controller
         return view('dashboard.products.edit', [
             'title' => 'Ubah Produk',
             'product' => $product,
+            'categories' => Category::all(),
         ]);
     }
 

@@ -110,6 +110,23 @@
                 </div>
               </div>
             </div>
+            <div class="row mb-3">
+              <div class="col">
+                <div class="form-label required">Kategori</div>
+                <select class="form-control @error('category_id') is-invalid @enderror" name="category_id">
+                  @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>
+                      {{ $category->name }}
+                    </option>
+                  @endforeach
+                </select>
+                @error('category_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
             <div class="card-footer d-flex">
               <a href="{{ getPreviousUrl(route('dashboard.products.index')) }}" class="btn me-auto">Batal</a>
               <button type="submit" class="btn btn-primary">Simpan</button>
