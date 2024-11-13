@@ -154,8 +154,7 @@
                       <p class="card-price">
                         <strong>{{ formatRupiah($product->price) }}</strong>
                       </p>
-                      <a href="{{ $product->url }}" class="btn" target="_blank">Beli</a>
-                      <a href="{{ route('products.show', $product->id) }}" class="btn btn-secondary">Detail</a>
+                      <a href="{{ route('products.show', $product->id) }}" class="btn btn-secondary">Beli</a>
                     </div>
                   </div>
                 </div>
