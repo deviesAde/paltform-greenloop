@@ -26,6 +26,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.authenticate');
     Route::get('/login/google', [AuthController::class, 'redirectToGoogle'])->name('auth.redirectToGoogle');
     Route::get('/login/google/callback', [AuthController::class, 'handleGoogleCallback'])->name('auth.handleGoogleCallback');
+    Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+   
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboard.'], function () {

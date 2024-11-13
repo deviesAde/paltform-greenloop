@@ -141,11 +141,11 @@
                       </h3>
                     </div>
 
-                    <div class="">
+                    {{-- <div class="">
                       <p class="card-text" style="font-size: 14px; color: #6c757d; margin-bottom: 10px;">
                         {{ $product->description }}
                       </p>
-                    </div>
+                    </div> --}}
 
                     <div class="card-list">
                     </div>
@@ -155,6 +155,7 @@
                         <strong>{{ formatRupiah($product->price) }}</strong>
                       </p>
                       <a href="{{ $product->url }}" class="btn" target="_blank">Beli</a>
+                      <a href="{{ route('products.show', $product->id) }}" class="btn btn-secondary">Detail</a>
                     </div>
                   </div>
                 </div>
