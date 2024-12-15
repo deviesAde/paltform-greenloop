@@ -47,8 +47,9 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, Product $product)
     {
-        $request->validate([ 'category_id' => 'required|exists:categories,id',]);
-        $data = $request->validated();
+
+        
+         $data = $request->validated();
 
         if ($request->hasFile('image')) {
             $this->deleteFile($product->image);

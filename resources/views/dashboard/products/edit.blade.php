@@ -111,10 +111,10 @@
               </div>
             </div>
            <div class="row mb-3">
-     <div class="row mb-3">
+      <div class="row mb-3">
             <div class="col">
                 <div class="form-label required">Kategori</div>
-                <select class="form-control @error('category_id') is-invalid @enderror" name="category_id">
+                <select class="form-select @error('category_id') is-invalid @enderror" name="category_id">
                     <option value="" disabled selected>Pilih Kategori</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}" {{ (old('category_id') ?? $product->category_id) == $category->id ? 'selected' : '' }}>

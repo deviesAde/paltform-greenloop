@@ -77,9 +77,11 @@
       </nav>
 
       <div class="header-actions">
-        <a href="https://wa.me/628885477865" class="btn btn-login" target="_blank">
+        <a href="https://wa.me/6283846588978" class="btn btn-login" target="_blank">
           <span>Contact</span>
-        </a>
+        <a href="{{ route('auth.index') }}" class="btn btn-login">
+        <span>Login</span>
+    </a>
       </div>
 
     </div>
@@ -320,34 +322,12 @@
           </li>
 
           <li>
-            <a href="#" class="social-link">
+            <a href="https://www.instagram.com/greenloopslife/" class="social-link">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
 
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-skype"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="mail-outline"></ion-icon>
-            </a>
-          </li>
+          
 
         </ul>
 
